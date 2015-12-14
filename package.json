@@ -1,0 +1,26 @@
+{
+  "name": "nodejs_excel",
+  "version": "1.0.0",
+  "description": "Tableur collaboratif",
+  "main": "server.js",
+  "dependencies": {
+    "socket.io": "^1.3.5",
+    "ejs": "^2.3.1",
+    "express": "^4.12.2",
+    "mysql": "^2.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "excel",
+    "tableur",
+    "collaboratif",
+    "math",
+    "sheets",
+    "table"
+  ],
+  "author": "MOULIN Raphael / BRUGIERE Arnaud",
+  "license": "MIT"
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ExCeL</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" media="all" href="style.css" />
+        <style type="text/css">
+            body { padding:20px; }   
+        </style>
+        <script src="jquery-1.10.2.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+            var socket = io.connect('http://localhost:8080');
+            var maj_auto = true;
+
+            //Ouverture de la connexion
+            socket.on('connect', function (){
+                $refreshFiles();
+                socket.on('disconnected', function() {
+                });
+            });
+
+
+            //Récupération de la liste des feuilles
+            socket.on('list', function (file){
+                $('#files-excel').append('<a href="' + file.id + '">' + file.nom + '<span>' + file.nb + ' personne' + (file.nb > 1 ? 's' : '')+ '</a>');
+            });
+
+
+            //Redirection vers le nouveau fichier
+            socket.on('redirect', function (id){
+                window.location.href = id;
+            });
+
+
+            //Mise à jour automatique de la liste
+            socket.on('updatelist', function (){
+                if (maj_auto)
+                    $refreshFiles();
+            });
+
+
+            //Mise à jour de la liste des feuilles
+            $refreshFiles = function() {
+                $('#files-excel').empty();
+                socket.emit('list');
+            };
+
+
+            //Ajout d'une nouvelle feuille
+            $newFile = function() {
+                var $nom;
+                while (!($nom = prompt('Nom du fichier?'))) { }
+                socket.emit('new', $nom);
+            };
+
+            $(function() {
+                if (maj_auto)
+                    $('.button:nth(1)').hide();
+            })   
+        </script>
+    </head>
+
+    <body>
+        <h1>ExCeL : Liste des fichiers</h1>
+        <a class="button" onclick="$newFile()">Nouveau fichier</a>
+        <a class="button" onclick="$refreshFiles()">Actualiser</a>
+        <div id="files-excel"></div>
+    </body>
+</html>

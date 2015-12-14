@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ExCeL</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" media="all" href="style.css" />
+        <script src="jquery-1.10.2.min.js"></script>
+        <script src="parser.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="editor.js"></script>
+        <script type="text/javascript">
+            var id_file = <%- JSON.stringify(id_file) %>;
+            var nom_file = <%- JSON.stringify(nom_file) %>;
+            var rows = <%- JSON.stringify(rows) %>;
+            var columns = <%- JSON.stringify(columns) %>;
+        </script>
+    </head>
+
+    <body>
+        <h1>
+            <a href="/">ExCeL</a> -
+            <script>document.write(nom_file);</script>
+        </h1>
+
+        <div id="tools-excel">
+            <a onclick="$toggleStyle('bold');" class="tool-style tool-style-bold"></a>
+            <a onclick="$toggleStyle('italic');" class="tool-style tool-style-italic"></a>
+            <a onclick="$toggleStyle('underline');" class="tool-style tool-style-underline"></a>
+            <a onclick="$toggleStyle('strike');" class="tool-style tool-style-strike"></a>
+
+            <a onclick="$('#tools-excel-color').toggle();" class="tool-color tool-color-group"></a>
+            <div id="tools-excel-color">
+                <a onclick="$toggleColor('red');" class="tool-color tool-color-red"></a>
+                <a onclick="$toggleColor('green');" class="tool-color tool-color-green"></a>
+                <a onclick="$toggleColor('blue');" class="tool-color tool-color-blue"></a>
+                <a onclick="$toggleColor('purple');" class="tool-color tool-color-purple"></a>
+                <a onclick="$toggleColor('yellow');" class="tool-color tool-color-yellow"></a>
+                <a onclick="$toggleColor('orange');" class="tool-color tool-color-orange"></a>
+                <a onclick="$toggleColor('white');" class="tool-color tool-color-white"></a>
+            </div>
+
+            <a onclick="$toggleAlign('left');" class="tool-align tool-align-left"></a>
+            <a onclick="$toggleAlign('center');" class="tool-align tool-align-center"></a>
+            <a onclick="$toggleAlign('right');" class="tool-align tool-align-right"></a>
+
+            <a onclick="$('#tools-excel-back').toggle();" class="tool-back tool-back-group"></a>
+            <div id="tools-excel-back">
+                <a onclick="$toggleBack('black');" class="tool-back tool-back-black"></a>
+                <a onclick="$toggleBack('red');" class="tool-back tool-back-red"></a>
+                <a onclick="$toggleBack('green');" class="tool-back tool-back-green"></a>
+                <a onclick="$toggleBack('blue');" class="tool-back tool-back-blue"></a>
+                <a onclick="$toggleBack('purple');" class="tool-back tool-back-purple"></a>
+                <a onclick="$toggleBack('yellow');" class="tool-back tool-back-yellow"></a>
+                <a onclick="$toggleBack('orange');" class="tool-back tool-back-orange"></a>
+                <a onclick="$toggleBack('none');" class="tool-back tool-back-none"></a>
+            </div>
+        </div>
+        <div id="users-excel"></div>
+
+
+        <table id="table-excel" data-columns="0" data-rows="0">
+            <thead>
+                <tr>
+                    <th><div></div></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </body>
+</html>

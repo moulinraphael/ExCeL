@@ -1,0 +1,328 @@
+* {
+    padding:0px;
+    margin:0px;
+    box-sizing:border-box;
+    font-family: Calibri, Arial, sans-serif;
+    font-size:13px;
+}
+
+html, body {
+    height:100%;
+}
+
+body {
+    overflow:hidden;
+}
+
+h1 { 
+    text-align: center;
+    font-size: 200%;
+}
+
+h1 a { 
+    text-align: center;
+    font-size: 100%;
+    display: inline-block;
+    margin:20px 0px 0px;
+    text-decoration: none;
+    color:#8AE;
+}
+
+a.button {
+    display: inline-block;
+    margin:20px;
+    margin-bottom: 0px;
+    padding:5px 20px;
+    border:1px solid #AAA;
+    background:#8AE;
+    cursor:pointer;
+    font-weight:bold;
+    width:150px;
+    text-align: center;
+    transition:0.2s;
+}
+
+a.button:hover {
+    background:#ACF;
+    transition:0.2s;
+}
+
+div#files-excel {
+    margin:20px;
+    border:1px solid #CCC;
+}
+
+div#files-excel a {
+    display: block;
+    line-height:30px;
+    font-size:1.25em;
+    vertical-align: middle;
+    padding-left:20px;
+    padding:5px;
+    border-bottom:1px solid #DDD;
+    color:#000;
+    text-decoration: none;
+    transition:0.2s;
+}
+
+div#files-excel a span {
+    float:right;
+    font-size:80%;
+    vertical-align: middle;
+    color:#999;
+    font-weight: normal !important;
+}
+
+div#files-excel a:nth-of-type(2n+1) {
+    background:#EEE;
+}
+
+div#files-excel a:last-of-type {
+    border:none;
+}
+
+div#files-excel a:hover {
+    background:#FEC;
+    font-weight:bold;
+    transition:0.2s;
+    padding-left:30px;
+}
+
+div#files-excel a:hover span {
+    font-weight: normal !important;
+}
+
+div#tools-excel,
+div#users-excel{
+    padding:5px;
+    display:inline-block;
+    margin-right:50px;
+}
+
+div#users-excel {
+    display: inline-block;
+    margin-right: 0px;
+}
+
+div#tools-excel a,
+div#users-excel div {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    line-height:30px;
+    text-align: center;
+    border:none;
+    box-shadow: 0px 0px 1px #000;
+    background:#CCC;
+    margin:3px;
+}
+
+div#users-excel div {
+    border-radius:15px;
+    font-variant: small-caps;
+}
+
+div#users-excel div:after {
+    content:"\00a0";
+}
+
+table#table-excel {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    table-layout:fixed;
+    display:block;
+    overflow: auto;
+    width:100%;
+    height:calc(100% - 112px);
+    max-width: 100%;
+    max-height: calc(100% - 112px);
+    border-top:1px solid #999;
+    margin-top:5px;
+}
+
+table#table-excel tr td,
+table#table-excel tr th {
+    line-height: 25px;
+    padding:0px;
+    vertical-align: middle;
+    border:1px solid #999;
+    width:100px;
+    min-width: 100px;
+}
+
+table#table-excel tr th,
+table#table-excel tr th div {
+    font-weight:bold;
+    text-align: center;
+    background:#EEE;
+    color:#666;
+    position:relative;
+    /*transition:0.2s;*/
+    background-clip: padding-box;
+    z-index:10;
+    box-shadow: 1px 1px 1px #999;
+    border-color:#EEE;
+}
+
+table#table-excel tr th:first-of-type {
+    width:50px;
+    min-width: 50px;
+}
+
+table#table-excel thead tr:first-of-type th,
+table#table-excel thead tr:first-of-type th div {
+    border-top:none;
+    z-index:100;
+}
+
+table#table-excel tr td input {
+    border:0px;
+    -webkit-appearance: none;
+    padding:2px 4px;
+    line-height: 25px;
+    height:25px;
+    width:100%;
+    background:none;
+    font-family: Calibri, Arial, sans-serif;
+    font-size:13px;
+}
+
+table#table-excel tr td input:focus{
+    outline: 0;
+    box-shadow:0px 0px 5px #000 !important;
+    border-radius: 0px;
+    background:#EEE !important;
+    font-weight:normal !important;
+    color:#000 !important;
+    text-align:left !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+}
+
+table#table-excel tr td input.cell-active:focus{
+    box-shadow:0px 0px 5px blue !important;
+    background: #F9F9F9 !important;
+    font-weight:normal !important;
+    color:#000 !important;
+    text-align:left !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+}
+
+
+table#table-excel tr td input.cell-error {
+    background: repeating-linear-gradient(
+      45deg,
+      #fee,
+      #fee 10px,
+      #fdd 10px,
+      #fdd 20px
+    ) !important;
+
+    font-weight:bold !important;
+    color:red !important;
+    text-align:left !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+}
+
+table#table-excel tr td input.cell-edit {
+    box-shadow:0px 0px 5px orange !important;
+    background:none !important;
+    font-weight:normal !important;
+    color:#000 !important;
+    text-align:left !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+}
+
+table#table-excel tr th a.add-row:after,
+table#table-excel tr th a.add-column:after {
+    color:red !important;
+    content:"\00a0+";
+    cursor:pointer;
+}
+
+div#tools-excel-color,
+div#tools-excel-back {
+    position: absolute;
+    display:none;
+    z-index:2000;
+    border:1px solid #999;
+    box-shadow:0px 0px 10px #999;
+    background:#FFF;
+    width:122px;
+    padding:3px;
+}
+
+div#tools-excel-color {
+    left:100px !important;
+}
+
+div#tools-excel-back{
+    left:230px !important;
+}
+
+div#tools-excel a {
+    margin-top:3px;
+}
+
+
+div#tools-excel a.tool-style {}
+div#tools-excel a.tool-style-bold:after { content:"B"; font-weight: bold; }
+div#tools-excel a.tool-style-italic:after { content:"I"; font-style: italic; }
+div#tools-excel a.tool-style-underline:after { content:"U"; text-decoration: underline; }
+div#tools-excel a.tool-style-strike:after { content:"S"; text-decoration: line-through; }
+
+div#tools-excel a.tool-color:after { content:"A";}
+div#tools-excel a.tool-color-red, div#tools-excel a.tool-color-group { color:red; }
+div#tools-excel a.tool-color-green { color:green; }
+div#tools-excel a.tool-color-blue { color:blue; }
+div#tools-excel a.tool-color-purple { color:purple; }
+div#tools-excel a.tool-color-yellow { color:yellow; }
+div#tools-excel a.tool-color-orange { color:orange; }
+div#tools-excel a.tool-color-white { color:white; }
+
+div#tools-excel a.tool-back:after { content:"\00a0"; }
+div#tools-excel a.tool-back-black { background:black; }
+div#tools-excel a.tool-back-red { background:red; }
+div#tools-excel a.tool-back-green { background:green; }
+div#tools-excel a.tool-back-blue { background:blue; }
+div#tools-excel a.tool-back-purple, div#tools-excel a.tool-back-group { background:purple; }
+div#tools-excel a.tool-back-yellow { background:yellow; }
+div#tools-excel a.tool-back-orange { background:orange; }
+div#tools-excel a.tool-back-none { background:inherit; }
+
+div#tools-excel a.tool-align:after { content:"\00a0"; }
+div#tools-excel a.tool-align { background-position:center center; background-repeat: no-repeat; }
+div#tools-excel a.tool-align-center { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVkbXaLl6NkbHWMmKRyfIZ/ipZ4g414hI5/ipX///8AAAAAAAAAAAAAAAAAAAAAAAA1T58LAAAACnRSTlP///////////8AsswszwAAAAFiS0dEDxi6ANkAAAAJcEhZcwAAAEgAAABIAEbJaz4AAAAJdnBBZwAAABAAAAAQAFzGrcMAAAA+SURBVAjXY5gJBQwIxkRBIJBEEhEUNgYCQ0EkNTNCgaATSU1aWjkQpKUhqZniAgSeSGrgAKFmkhIQaCLUAAAQITsKGFr87wAAACV0RVh0Y3JlYXRlLWRhdGUAMjAwOC0xMC0yM1QxMTo1ODozNiswODowMKkTWd4AAAAldEVYdG1vZGlmeS1kYXRlADIwMDgtMTAtMjNUMTE6NTk6NTArMDg6MDC833hpAAAAAElFTkSuQmCC'); }
+div#tools-excel a.tool-align-left { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVkbXaLl6NkbHWMmKRyfIZ/ipZ4hI54g41/ipX///8AAAAAAAAAAAAAAAAAAAAAAAAo2VzkAAAACnRSTlP///////////8AsswszwAAAAFiS0dEDxi6ANkAAAAJcEhZcwAAAEgAAABIAEbJaz4AAAAJdnBBZwAAABAAAAAQAFzGrcMAAAAzSURBVAjXY5gJBQxwhiAIoIgYgwBQECESCgQRKGrSgCC9vLwcIeICAihq4AAuogQCyGoA7ZM6yuRUReEAAAAldEVYdGNyZWF0ZS1kYXRlADIwMDgtMTAtMjNUMTE6NTg6MzYrMDg6MDCpE1neAAAAJXRFWHRtb2RpZnktZGF0ZQAyMDA4LTEwLTIzVDExOjU5OjUwKzA4OjAwvN94aQAAAABJRU5ErkJggg=='); }
+div#tools-excel a.tool-align-right { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVkbXaLl6NkbHWMmKRyfIZ/ipZ4hI54g41/ipX///8AAAAAAAAAAAAAAAAAAAAAAAAo2VzkAAAACnRSTlP///////////8AsswszwAAAAFiS0dEDxi6ANkAAAAJcEhZcwAAAEgAAABIAEbJaz4AAAAJdnBBZwAAABAAAAAQAFzGrcMAAAAzSURBVAjXY5gJBQzIDEEQQIgAOcYggKKmNRQIECLl5eVlaUCAosYFBBAicICsRgkE4CIAF6k7BvBeAwYAAAAldEVYdGNyZWF0ZS1kYXRlADIwMDgtMTAtMjNUMTE6NTg6MzYrMDg6MDCpE1neAAAAJXRFWHRtb2RpZnktZGF0ZQAyMDA4LTEwLTIzVDExOjU5OjUwKzA4OjAwvN94aQAAAABJRU5ErkJggg=='); }
+
+table#table-excel tr td input.cell-style-bold { font-weight: bold; }
+table#table-excel tr td input.cell-style-italic { font-style: italic; }
+table#table-excel tr td input.cell-style-underline { text-decoration: underline; }
+table#table-excel tr td input.cell-style-strike { text-decoration: line-through; }
+table#table-excel tr td input.cell-style-strike.cell-style-underline { text-decoration: underline line-through; }
+
+
+table#table-excel tr td input.cell-color-red { color: red; }
+table#table-excel tr td input.cell-color-green { color: green; }
+table#table-excel tr td input.cell-color-blue { color: blue; }
+table#table-excel tr td input.cell-color-purple { color: purple; }
+table#table-excel tr td input.cell-color-yellow { color: yellow; }
+table#table-excel tr td input.cell-color-orange { color: orange; }
+table#table-excel tr td input.cell-color-white { color: white; }
+
+table#table-excel tr td input.cell-align-center { text-align: center; }
+table#table-excel tr td input.cell-align-left { text-align: left; }
+table#table-excel tr td input.cell-align-right { text-align: right; }
+
+table#table-excel tr td input.cell-back-black { background: black; }
+table#table-excel tr td input.cell-back-red { background: red; }
+table#table-excel tr td input.cell-back-green { background: green; }
+table#table-excel tr td input.cell-back-blue { background: blue; }
+table#table-excel tr td input.cell-back-purple { background: purple; }
+table#table-excel tr td input.cell-back-yellow { background: yellow; }
+table#table-excel tr td input.cell-back-orange { background: orange; }
+table#table-excel tr td input.cell-back-none { background: none; }
